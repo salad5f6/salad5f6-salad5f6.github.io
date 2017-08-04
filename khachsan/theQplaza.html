@@ -24,6 +24,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">	
 </script>
 
+<link rel="stylesheet" type="text/css" href="khachsan.css">
 
 <script>
 function myMap() {
@@ -65,107 +66,15 @@ var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
 
 
-<style type="text/css">
 
-
-
-	 .navbar-inverse .navbar-nav>li>a:hover {
-		color: black;
-	}
-		.navbar-inverse .navbar-nav>li>a:visited {
-		color: none;
-	}
-
-	body {
-		background-color: white;
-		box-sizing: border-box;
-		
-		margin: auto;
-		
-	}
-	
-	
-	.navbar-inverse {
-    background-color: #6fa6d6;
-
-    border:none;
-    
-
-	}
-	.navbar-inverse .navbar-nav>li>a { color: white; }
-
-
-	.container-fluid {
-		padding-left: 80px;
-	}
-	.navbar-nav>li>a {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 50px;
-    padding-right: 50px;
-    font-size: 16px;
-
-	}
-
-	.smallone {
-			margin: 12px;
-	}
-	
-
-	/*.carousel, .item, .active {
-    height: 67%;
-	}
-*/
-	.carousel {
-		position: relative;
-	}
-
-	#findmore:hover {
-		background-color: rgba(111, 166, 214, 0.56);}
-
-	.carousel-indicators {
-    bottom: 90px;
-	}
-
-
-
-	.lowimg { opacity: 0.4; transition: opacity 0.4s ease-out; }
-	
-	.lowimg:hover { opacity: 1;}	
-	
-
-	.subtitle {
-		display:block;
-		position: absolute;
-		left: 40%;
-    	top: 40%;
-    	color: black;
-    	font-size: 30px;
-
-
-
-	}
-	.bodyimg {
-		position: relative;
-	   padding-top: 60px;
-  }
-
-	.rowhidden { display: none; }
-
-  
-
-
-</style>
 
 </head>
 <body>
-	<div id="topbar" style="height:72px;width:100%;background-color:white;position:fixed;z-index:50;">
+	<div id="topbar">
 		
 			
-			<img src="logo.png" class="img-responsive" style="width:15%;height:64px;    margin-top: 3px;float:left;padding-left: 2%;">
-			<div style="float:right;   
-    				margin-right: 10%;
-   					 margin-top: 1%;     margin-top: 0.5%;">
+			<img src="logo.png" class="img-responsive" >
+			<div id="diachi" style="">
 				<span style="color:#6fa6d6;">   
 
 				<p> <i class="glyphicon glyphicon-map-marker"></i> <b>theQplaza Hotel</b> : K5 Nghi Tam, 11 Xuan Dieu Road, Tay Ho District, Danang.</p>
@@ -175,7 +84,7 @@ var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 		
 
 	</div>
-	<nav class="navbar navbar-inverse" id="wholenavbartop" style="margin-bottom: 0px;position: fixed;display: none;z-index: 700; width:100%;">
+	<nav class="navbar navbar-inverse" id="wholenavbartop" style="">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -195,7 +104,7 @@ var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#" style="color:white; background-color:#6fa6d6; font-size:23px;" ><b>THE QPLAZA </b><br ><span style="font-size:13px; text-align:justify;"> HOTELS AND RESORTS </span ></br><span class="sr-only">(current)</span></a></li>
+        <li class="active" id="tenkhachsan"><a href="#" ><b>THE QPLAZA </b><br ><span id="tenkhachsan2" > HOTELS AND RESORTS </span ></br><span class="sr-only">(current)</span></a></li>
 
         <li class="navbox smallone"><a href="#"><b> Đặt phòng</b> </a></li>
         <li class="navbox smallone"><a href="#"><b> Sự kiện và hội nghị </b></a></li>
@@ -228,18 +137,12 @@ var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
 	<!-- đây là cái carousel -->
 
-		<div id="bookbox" style="    width: 24%;
-   			 height: 350px;
-    		background-color:rgba(255, 255, 255, 0.89);
-    		position: absolute;
-    		left: 2%;
-    		top: 30%;
-    		z-index: 30;">
-    		<div style="height:50px;width:100%;background-color:rgba(0,0,0,0.05);color: #6fa6d6;">
-    			<span style="display:block;padding-top: 3%;"><p style="text-align:center;font-size:21px;" ><b> ĐẶT PHÒNG</b> </p></span>
+		<div id="bookbox">
+    		<div id="bookboxtip" >
+    			<span id="datphongbookbox"><p><b> ĐẶT PHÒNG</b> </p></span>
     		</div>
 
-    		<div style="margin:7%;">
+    		<div id="bookboxbot">
     		<form >
     		<div class="input-group">
     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -279,7 +182,7 @@ var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
     </div>
   </form>
 			</div>
-			 <button type="submit" class="btn btn-default" style="background-color: #6fa6d6;color:white;">Submit</button>
+			 <button id="bookboxbutton" type="submit" class="btn btn-default">Submit</button>
 			</form>
 
 
@@ -303,21 +206,15 @@ var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
         <div class="carousel-inner">
             <div class="item active">
                 <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image: url('head.jpg');height:600px;width:100%;"></div>
+                <div class="fill" id="headimage"></div>
         
 
 
-                <div id="smalltextbox" style="  height: 28%;
-    width: 43%;
-    background-color: rgba(0,0,0,0.5);
-    position: absolute;
-    left: 57%;
-    top: 70%;
-    z-index: 2000;">	
+                <div id="smalltextbox">	
 
-   					 	<a href="#" style="color:white;font-size:20px;margin: 3%;display:block;"> Về chúng tôi  </a>
-   					 	
-   					 	<p style="color:white;font-size:15px;color: white;margin: 3%">
+   					 	<a href="#"> Về chúng tôi  </a>  					 	
+   					 	<p>
+
    					 		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
    					 	</p>
    					 	
@@ -332,19 +229,13 @@ var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
             </div>
             <div class="item">
                 <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image: url('head1.jpg');height:600px;width:100%;"></div>
+                <div id="headimage2" class="fill"></div>
 
                
-                <div id="smalltextbox" style="    height: 28%;
-    width: 43%;
-    background-color: rgba(0,0,0,0.5);
-    position: absolute;
-    left: 57%;
-    top: 70%;
-    z-index: 2000;">	
+                <div id="smalltextbox">	
 
-   					 	<a href="#" style="color:white;font-size:20px;margin: 3%;display:block;"> Dịch vụ  </a>
-   					 	<p style="color:white;font-size:15px;color: white;margin: 3%">
+   					 	<a href="#"> Dịch vụ  </a>
+   					 	<p >
    					 		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
    					 	</p>
    					 	
@@ -358,18 +249,12 @@ var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
             <div class="item">
                 <!-- Set the third background image using inline CSS below. -->
-                <div class="fill" style="background-image: url('head2.jpg');height:600px;width:100%;"></div>
+                <div id="headimage3" class="fill"></div>
                 
-                <div id="smalltextbox" style="   height: 28%;
-    width: 43%;
-    background-color: rgba(0,0,0,0.5);
-    position: absolute;
-    left: 57%;
-    top: 70%;
-    z-index: 2000;">	
+                <div id="smalltextbox">	
 
-   					 	<a href="#" style="color:white;font-size:20px;margin: 3%;display:block;"> Ẩm thực  </a>
-   					 	<p style="color:white;font-size:15px;color: white;margin: 3%">
+   					 	<a href="#"> Ẩm thực  </a>
+   					 	<p >
    					 		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
    					 	</p>
    					 	
@@ -441,69 +326,55 @@ var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 	<section class="container" > 
 
 		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="height:100px;">
+			<div id="khoangcach1" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				
 				
 				
 			</div>
 		</div>
-		<!-- <div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div id="findmore" style="    width: 20%;    margin-top: 13px;margin-bottom: 40px;
-    				height: 100px;
-    				margin-left: 40%;">
-    			<img src="down.png" class="img-responsive" style="height:40px;width:40px;display:block;    margin-left: 40%;    padding-top: 2%;">
-				<p style="text-align:center;font-size:20px;padding-top:13px;color:#6fa6d6;"> Tìm hiểu thêm </p>
-				</div>
-			</div>
-		</div> -->
+		
+
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<p style="text-align:center;font-size:30px;"> Chào mừng đến với khách sạn THE QPLAZA </p>
+				<p id="loigioithieu"> Chào mừng đến với khách sạn THE QPLAZA </p>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<span style="text-align:center;color:grey;"><p> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p></span>
+				<span class="bacham"><p> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p></span>
 				<p style="text-align:center;"> Where does it come from?
 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin 
 There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum </p>
 			</div>
 		</div>
-		<div class="row" style="padding-top:60px;padding-bottom:60px;">
+		<div class="row row1">
 			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-				<div style="background-color:#f2f2f2; padding-top: 17%;
-    			padding-bottom: 17%;
-}">
+				<div class="boxrow1">
 
-				<img src="checkbox.png" class="img-responsive" style="height:60px;width:60px;    margin-left: 42%;    margin-bottom: 10%;">
-				<span style="text-align:center;font-size:20px;"><p><b> Đảm bảo chất lượng </b></p>
-					<p style="text-align:center;font-size:14px;">  Đảm bảo việc đặt phòng ốc mọi lúc </p>
+				<img src="checkbox.png" class="img-responsive boxfeature">
+				<span class="boxrow1span"><p><b> Đảm bảo chất lượng </b></p>
+					<p class="boxrow1p">  Đảm bảo việc đặt phòng ốc mọi lúc </p>
 				</span>
 				
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-				<div style="background-color:#f2f2f2;     padding-top: 17%;
-    			padding-bottom: 17%;
-}">
+				<div class="boxrow1">
 				
-				<img src="giftbox.png" class="img-responsive" style="height:60px;width:60px;    margin-left: 42%;    margin-bottom: 10%;">
-				<span style="text-align:center;font-size:20px;"><p><b> Thanh toán </b></p>
-					<p style="text-align:center;font-size:14px;">  Chấp nhận các kiểu thanh toán </p>
+				<img src="giftbox.png" class="img-responsive boxfeature" >
+				<span class="boxrow1span"><p><b> Thanh toán </b></p>
+					<p class="boxrow1p">  Chấp nhận các kiểu thanh toán </p>
 				</span>
 				
 
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-				<div style="background-color:#f2f2f2;     padding-top: 17%;
-    			padding-bottom: 17%;
-}">
+				<div class="boxrow1">
 
-				<img src="wifi.png" class="img-responsive" style="height:60px;width:60px;    margin-left: 42%;    margin-bottom: 10%;">
-				<span style="text-align:center;font-size:20px;"><p><b> Kết nối Internet</b></p>
-					<p style="text-align:center;font-size:14px;">  Wi-fi tốc độ cao mọi lúc mọi nơi </p>
+				<img src="wifi.png" class="img-responsive boxfeature">
+				<span class="boxrow1span""><p><b> Kết nối Internet</b></p>
+					<p class="boxrow1p">  Wi-fi tốc độ cao mọi lúc mọi nơi </p>
 				</span>
 				
 				</div>
@@ -513,13 +384,13 @@ There are many variations of passages of Lorem Ipsum available, but the majority
 
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<p style="text-align:center;font-size:30px;"> Phòng ốc các kiểu </p>
+				<p id="phongocgioithieu"> Phòng ốc các kiểu </p>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<span style="text-align:center;color:grey;"><p> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p></span>
+				<span class="bacham"><p> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p></span>
 				<p style="text-align:center;"> Where does it come from?
 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin 
 There are many variations of passa </p>
@@ -527,18 +398,18 @@ There are many variations of passa </p>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 bodyimg" style=";height: 400px; ">
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 bodyimg">
 				
 				<span class="subtitle"> single  </span>
-				<img src="single.jpg" class="img-responsive lowimg" style="height: 300px;">
+				<img src="single.jpg" class="img-responsive lowimg">
 
 
-				<span style="height: 70px;width:100%;background-color:#f2f2f2;display: block;    padding-top: 5%; color: #337ab7; ">
+				  <span class="imgspan">
 
-					<div style="float: left;padding: 5%;"> <p style="text-align: center;"><i class="glyphicon glyphicon-tag
-					" ><b> 500.000VND </b></i> </p>
-					</div>
-					<div  style="float: right;padding: 5%;">
+					<div class="imgp"> <p><i class="glyphicon glyphicon-tag
+          " ><b> 900.000VND </b></i> </p>
+          </div>
+					<div class="imgnguoi">
 						<p><i class="glyphicon glyphicon-user"><b> 2 người </b></i></p>
 					</div>
 					
@@ -547,17 +418,17 @@ There are many variations of passa </p>
 
 				</span>
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 bodyimg" style="height: 400px; ">
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 bodyimg">
 				
 				<span class="subtitle"> double  </span>
-				<img src="single.jpg" class="img-responsive lowimg" style="height: 300px;">
+				<img src="single.jpg" class="img-responsive lowimg" >
 				
-				<span style="height: 70px;width:100%;background-color:#f2f2f2;display: block;    padding-top: 5%; color: #337ab7;">
+				<span class="imgspan">
 
-					<div style="float: left;padding: 5%;"> <p style="text-align: center;"><i class="glyphicon glyphicon-tag
+					<div class="imgp"> <p><i class="glyphicon glyphicon-tag
 					" ><b> 900.000VND </b></i> </p>
 					</div>
-					<div  style="float: right;padding: 5%;">
+					<div class="imgnguoi">
 						<p><i class="glyphicon glyphicon-user"><b> 4 người </b></i></p>
 					</div>
 					
@@ -568,17 +439,17 @@ There are many variations of passa </p>
 
 			</div>
 
-			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 bodyimg" style="height: 400px; ">
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 bodyimg">
 				
 				<span class="subtitle"> Suite </span>
-				<img src="single.jpg" class="img-responsive lowimg" style="height: 300px;">
+				<img src="single.jpg" class="img-responsive lowimg">
 				
-				<span style="height: 70px;width:100%;background-color:#f2f2f2;display: block;    padding-top: 5%; color: #337ab7;">
+				<span class="imgspan">
 
-					<div style="float: left;padding: 5%;"> <p style="text-align: center;"><i class="glyphicon glyphicon-tag
+					<div class="imgp"> <p><i class="glyphicon glyphicon-tag
 					" ><b> 800.000VND </b></i> </p>
 					</div>
-					<div  style="float: right;padding: 5%;">
+					<div class="imgnguoi">
 						<p><i class="glyphicon glyphicon-user"><b> 2 người </b></i></p>
 					</div>
 					
@@ -596,17 +467,17 @@ There are many variations of passa </p>
 
 
 		<div class="row rowhidden">
-			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 bodyimg" style="height: 400px; ">
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 bodyimg" >
 				
 				<span class="subtitle"> Classic</span>
-				<img src="single.jpg" class="img-responsive lowimg" style="height: 300px;">
+				<img src="single.jpg" class="img-responsive lowimg" >
 				
-				<span style="height: 70px;width:100%;background-color:#f2f2f2;display: block;    padding-top: 5%; color: #337ab7;">
+				<span class="imgspan">
 
-					<div style="float: left;padding: 5%;"> <p style="text-align: center;"><i class="glyphicon glyphicon-tag
+					<div class="imgp"> <p><i class="glyphicon glyphicon-tag
 					" ><b> 1.000.000VND </b></i> </p>
 					</div>
-					<div  style="float: right;padding: 5%;">
+					<div class="imgnguoi">
 						<p><i class="glyphicon glyphicon-user"><b> 2 người </b></i></p>
 					</div>
 					
@@ -616,17 +487,17 @@ There are many variations of passa </p>
 				</span>
 
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 bodyimg" style="height: 400px; ">
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 bodyimg" >
 				
 				<span class="subtitle"> Premium </span>
-				<img src="single.jpg" class="img-responsive lowimg" style="height: 300px;">
+				<img src="single.jpg" class="img-responsive lowimg" >
 				
-				<span style="height: 70px;width:100%;background-color:#f2f2f2;display: block;    padding-top: 5%; color: #337ab7;">
+				<span class="imgspan">
 
-					<div style="float: left;padding: 5%;"> <p style="text-align: center;"><i class="glyphicon glyphicon-tag
+					<div class="imgp"> <p"><i class="glyphicon glyphicon-tag
 					" ><b> 1.500.000VND </b></i> </p>
 					</div>
-					<div  style="float: right;padding: 5%;">
+					<div class="imgnguoi">
 						<p><i class="glyphicon glyphicon-user"><b> 2 người </b></i></p>
 					</div>
 					
@@ -636,17 +507,17 @@ There are many variations of passa </p>
 				</span>
 
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 bodyimg" style="height: 400px; ">
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 bodyimg" >
 				
 				<span class="subtitle"> Deluxe </span>
-				<img src="single.jpg" class="img-responsive lowimg" style="height: 300px;">
+				<img src="single.jpg" class="img-responsive lowimg" >
 				
-				<span style="height: 70px;width:100%;background-color:#f2f2f2;display: block;    padding-top: 5%; color: #337ab7;">
+				<span class="imgspan">
 
-					<div style="float: left;padding: 5%;"> <p style="text-align: center;"><i class="glyphicon glyphicon-tag
+					<div class="imgp"> <p><i class="glyphicon glyphicon-tag
 					" ><b> 2.500.000VND </b></i> </p>
 					</div>
-					<div  style="float: right;padding: 5%;">
+					<div class="imgnguoi">
 						<p><i class="glyphicon glyphicon-user"><b> 6 người </b></i></p>
 					</div>
 					
@@ -662,16 +533,16 @@ There are many variations of passa </p>
 		</div>
 
     <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="height: 120px;width:75%;background-color: #f2f2f2;margin-top: 40px;margin-left: 15px;float: left ">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="thongtinbox" style="">
             
-            <div class="phongnghibox" style="float: left;margin: 2%">
+            <div class="phongnghibox" id="boxtrai">
 
             <p><b> THÔNG TIN KHÁCH SẠN </b></p>
             <p><i class="glyphicon glyphicon-time"></i> Thời gian nhận phòng: 3:00 PM </p>
             <p><i class="glyphicon glyphicon-time"></i> Thời gian trả phòng: 12:00 PM</p>
             </div>
 
-            <div class="phongnghibox" style="float: left;margin: 2%;margin-left: 15%;">
+            <div class="phongnghibox" id="boxphai">
             <p><b> HOẠT ĐỘNG VÀ DỊCH VỤ </b></p>
             <p><i class="glyphicon glyphicon-time"></i> 20 Phòng nghỉ </p>
             <p><i class="glyphicon glyphicon-time"></i> Extra bed cho các loại phòng cao cấp </p>
@@ -680,12 +551,10 @@ There are many variations of passa </p>
 
 
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 showbox" style="height: 70px;width:21%;background-color: #6fa6d6;margin-top: 40px;margin-right: 15px; float: right;">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 showbox">
             
-            <div id="show" style="background-color: none;color:white;border: none;padding-top: 30px;    padding-top: 11%;
-                  padding-left: 23%; "> HIỆN THÊM PHÒNG </div>
-            <div id="hide" style="display:none; background-color: none;color:white;border: none;padding-top: 30px;padding-top: 11%;
-                  padding-left: 23%;"> HIỆN BỚT PHÒNG </div>
+            <div id="show"> HIỆN THÊM PHÒNG </div>
+            <div id="hide"> HIỆN BỚT PHÒNG </div>
 
         </div>
     </div>
@@ -714,7 +583,7 @@ There are many variations of passa </p>
 
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 60px;">
-				<span style="text-align:center;color:grey;"><p> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p></span>
+				<span class="bacham"><p> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p></span>
 				<p style="text-align:center;"> Where does it come from?
 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin 
 There are many variations of passa </p>
@@ -779,7 +648,7 @@ There are many variations of passa </p>
 
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 60px;">
-				<span style="text-align:center;color:grey;"><p> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p></span>
+				<span class="bacham""><p> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p></span>
 				<p style="text-align:center;"> Where does it come from?
 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin 
 There are many variations of passa </p>
@@ -840,7 +709,7 @@ There are many variations of passa </p>
 
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 60px;">
-				<span style="text-align:center;color:grey;"><p> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p></span>
+				<span class="bacham""><p> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p></span>
 				<p style="text-align:center;"> Where does it come from?
 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin 
 There are many variations of passa </p>
@@ -872,22 +741,11 @@ There are many variations of passa </p>
 
 				 </div>
 
-          		<div id="googleMap" style="height:400px;width:70%;float: right;"></div>    
+          	<div id="googleMap"></div>    
           
-        		<!-- </div>
-        		<div id="" style="height:30%;width:35%;background-color:rgba(0,0,0,0.5);position:absolute;      left: 55%;
-    top: 50%;z-index:20;" class="img-responsive">	
-
-
-
-   					 	<a href="#" style="color:white;font-size:20px;margin: 3%;display:block;"> Ẩm thực Đà Nẵng  </a>
-   					 	<p style="color:white;font-size:15px;color: white;margin: 3%">
-   					 		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
-   					 	</p>
-   					 	
-				</div> -->
+        		
 				
-			</div>
+			       </div>
 		</div>
 		
 

@@ -1,0 +1,253 @@
+
+
+
+
+	 .navbar-inverse .navbar-nav>li>a:hover {
+		color: black;
+	}
+		.navbar-inverse .navbar-nav>li>a:visited {
+		color: none;
+	}
+
+	body {
+		background-color: white;
+		box-sizing: border-box;
+		
+		margin: auto;
+		
+	}
+	
+	
+	.navbar-inverse {
+    background-color: #6fa6d6;
+
+    border:none;
+    
+
+	}
+	.navbar-inverse .navbar-nav>li>a { color: white; }
+
+
+	.container-fluid {
+		padding-left: 80px;
+	}
+	.navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 16px;
+
+	}
+
+	.smallone {
+			margin: 12px;
+	}
+	
+
+	/*.carousel, .item, .active {
+    height: 67%;
+	}
+*/
+	.carousel {
+		position: relative;
+	}
+
+	#findmore:hover {
+		background-color: rgba(111, 166, 214, 0.56);}
+
+	.carousel-indicators {
+    bottom: 90px;
+	}
+
+
+
+	.lowimg { opacity: 0.4; transition: opacity 0.4s ease-out; }
+	
+	.lowimg:hover { opacity: 1;}	
+	
+
+	.subtitle {
+		display:block;
+		position: absolute;
+		left: 40%;
+    	top: 40%;
+    	color: black;
+    	font-size: 30px;
+
+
+
+	}
+	.bodyimg {
+		position: relative;
+	   	padding-top: 60px;
+	   	height: 400px;
+  	}
+  	.lowimg img {
+  		height: 300px;
+  	}
+
+	.rowhidden { display: none; }
+
+
+	
+
+
+	#topbar { height: 72px; width: 100%;background-color: white;position: fixed;z-index: 51; }
+
+	#topbar img {
+		width:15%;height:64px;    margin-top: 3px;float:left;padding-left: 2%;
+	}
+
+	#diachi {
+		float:right;   
+    				margin-right: 10%;
+   					 margin-top: 1%;     margin-top: 0.5%;
+	}
+
+
+
+	#wholenavbartop {
+		margin-bottom: 0px;position: fixed;display: none;z-index: 700; width:100%;
+	}
+
+	#tenkhachsan a { 
+		color:white; background-color:#6fa6d6; font-size:23px;
+	 }
+
+	#tenkhachsan2 { 
+		font-size:13px; text-align:justify;
+	 }
+
+	#bookbox {
+		width: 24%;
+   			 height: 350px;
+    		background-color:rgba(255, 255, 255, 0.89);
+    		position: absolute;
+    		left: 2%;
+    		top: 30%;
+    		z-index: 30;
+	}
+
+	#bookboxtip {
+		height:50px;width:100%;background-color:rgba(0,0,0,0.05);color: #6fa6d6;
+	}
+
+	#datphongbookbox { 
+		display:block;padding-top: 3%;
+	 }
+
+	#datphongbookbox p {
+		text-align:center;font-size:21px;
+	}
+	#bookboxbot {
+		margin:7%;
+	}
+	#bookboxbutton {
+		background-color: #6fa6d6;color:white;
+	}
+  	#headimage {
+  		background-image: url('head.jpg');height:600px;width:100%;
+  	}
+  	#smalltextbox {
+  		height: 28%;
+    	width: 43%;
+    	background-color: rgba(0,0,0,0.5);
+    	position: absolute;
+   	 	left: 57%;
+    	top: 70%;
+    	z-index: 2000;
+  	}
+  	
+  	#smalltextbox a {
+  		color:white;font-size:20px;margin: 3%;display:block;
+  	}
+  	#smalltextbox p {
+  		color:white;font-size:15px;color: white;margin: 3%
+  	}
+
+
+  	#headimage2 {
+  		background-image: url('head1.jpg');height:600px;width:100%;
+  	}
+  	#headimage3 {
+  		background-image: url('head2.jpg');height:600px;width:100%;
+  	}
+
+  	#show {
+  		background-color: none;color:white;border: none;padding-top: 30px;    padding-top: 11%;
+                  padding-left: 23%; 
+  	}
+  	#hide{
+  		background-color: none;color:white;border: none;padding-top: 30px;    padding-top: 11%;
+                  padding-left: 23%; 
+  	}
+
+  	.showbox {
+  		height: 70px;width:21%;background-color: #6fa6d6;margin-top: 40px;margin-right: 15px; float: right;
+  	}
+  	#thongtinbox {
+  		height: 120px;width:75%;background-color: #f2f2f2;margin-top: 40px;margin-left: 15px;float: left 
+  	}
+  	#boxphai{
+  		float: left;margin: 2%;margin-left: 15%;
+  	}
+  	#boxtrai{
+  		float: left;margin: 2%
+  	}
+  	#khoangcach1 {
+  		height:100px;
+  	}
+  	#loigioithieu {
+  		text-align:center;font-size:30px;
+  	}
+  	.boxfeature {
+  		height:60px;width:60px;    margin-left: 42%;    margin-bottom: 10%;
+  	}
+  	.row1 {
+  		padding-top:60px;padding-bottom:60px;
+  	}
+  	.boxrow1 {
+  		background-color:#f2f2f2; padding-top: 17%;
+    			padding-bottom: 17%;
+  	}
+  	.boxrow1span {
+  		text-align:center;font-size:20px;
+  	}
+  	.boxrow1p {
+  		text-align:center;font-size:14px;
+  	}
+  	#phongocgioithieu {
+  		text-align:center;font-size:30px;
+  	}
+  	.bacham {
+  		text-align:center;color:grey;
+  	}
+  	.imgspan {
+  		height: 70px;width:100%;background-color:#f2f2f2;display: block;    padding-top: 5%; color: #337ab7; 
+  	}
+  	.imgp{
+  		float: left;padding: 5%;
+  	}
+  	.imgp p {
+  		text-align: center;
+  	}
+  	.imgnguoi {
+  		float: right;padding: 5%;
+  	}
+  	#googleMap {
+  		height:400px;width:70%;float: right;
+  	}
+
+
+
+
+
+
+
+
+
+
+
+
+
