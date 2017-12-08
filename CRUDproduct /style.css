@@ -1,0 +1,33 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+     
+    margin-top: 50px;
+  
+
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #2196f3a6;   
+  }
+  .search {
+    margin-right: 50px;
+    float: right;
+  }
+  #wrap {
+    margin:100px;
+  }
+  #pagination {
+    float: right;
+    margin-right: 50px;
+  }
+  h1{
+    padding-left: 50px;
+  }
