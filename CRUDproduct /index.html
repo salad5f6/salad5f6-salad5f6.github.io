@@ -41,8 +41,46 @@ table {
     padding-bottom:50px;
     padding-top:50px;
     color:white;
-
   }
+
+  /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 
 </style>
@@ -65,6 +103,11 @@ table {
 
 
 </head>
+<head>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+</head>
   <body>
 <container id="wrap">
   <div id="words">
@@ -77,13 +120,12 @@ table {
 <button onclick="add()"> Create New</button>
 </div>
 </br>
-
-
+    
 <table class="table" id="bang" >
   <tr>
     <th>No <button onclick="toggleNumber()">sort</button></th>
-    <th>Name <button>sort</button></th>
-    <th>Details <button>sort</button></th>
+    <th>Name </th>
+    <th>Details </th>
     <th>Action </th>
   </tr>
   <tr class="row">
@@ -110,14 +152,7 @@ table {
     <td class="info"></td>
     <td class="deleteButton editButton"> </td>
   </tr>
-    
-     <tr class="row" >
-       
-    <td class="no"></td>
-    <td class="name"></td>
-    <td class="info"></td>
-    <td class="deleteButton editButton"></td>
-  </tr>
+
   
   
   
@@ -125,15 +160,29 @@ table {
   
 </table>
 <div id="pagination">
-  <button onclick="nextPage()"> 1 </button>
-  <button onclick="nextPage2()"> 2 </button>
-  <button onclick="nextPage3()"> 3 </button>
+  <a href="javascript:prevPage()" id="prev">Prev</a>
+  <a href="javascript:nextPage()" id="next">Next</a>
+  <span> page: </span> <span id="page"></span>
+</div>
+    
+<div>
+  <span>
+    
+  </span>
+</div>
+    <div id="myModal" class="modal">
+
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p id="outputText"></p>
+  </div>
 
 </div>
+
+    
+    
 </container>
 </body>
-</body>
-
 
 
 
@@ -142,9 +191,8 @@ table {
 
 <script type="text/javascript">
 	
-var content;  
-var content = 
-[ 
+
+var content = [ 
   {
     number: 1,
     name: "Cheese",
@@ -169,32 +217,144 @@ var content =
     number: 5,
     name: "Dog meat",
     detail: "Viet"
+  },
+  {
+    number: 6,
+    name: "Orange",
+    detail: "Libia"
+  },
+  {
+    number: 7,
+    name: "Wurst",
+    detail: "Germany"
+  },
+  {
+    number: 8,
+    name: "Grapes",
+    detail: "Laos"
+  },
+  {
+    number: 9,
+    name: "Grains",
+    detail: "Korea"
+  },
+    {
+    number: 10,
+    name: "Cats",
+    detail: "Thais"
+      
+  },
+  {
+    number: 11,
+    name: "Laptops",
+    detail: "Sweden"
+  },
+  {
+    number: 12,
+    name: "Plans",
+    detail: "Australia"
+  },
+  {
+    number: 13,
+    name: "Screws",
+    detail: "USA"
+  },
+  {
+    number: 14,
+    name: "Glass",
+    detail: "Sudan"
+  },
+    {
+    number: 15,
+    name: "Banana",
+    detail: "Mongo"
+  },
+  {
+    number: 16,
+    name: "Pusheen",
+    detail: "Asia"
+  },
+  {
+    number: 17,
+    name: "Hammer",
+    detail: "USA"
+  },
+  {
+    number: 18,
+    name: "jewels",
+    detail: "Africa"
+  },
+    {
+    number: 19,
+    name: "cows",
+    detail: "Arghentina"
+  },
+  {
+    number: 20,
+    name: "soy",
+    detail: "Pakistan"
   }
     
-]
-// printInformation
+] 
 
-var so = document.getElementsByClassName("no");
-for( var i = 0; i< content.length; i++)
-{ 
-    so[i].innerHTML = content[i].number;
+
+var current_page = 1;
+// page hien tai
+var pageRecord = 4;
+// page dieu chinh theo so dong
+function numPages()
+{      
+    var n = Math.ceil(content.length / pageRecord);
+    return n;
 }
-   
-var ten = document.getElementsByClassName("name");
-for( var i = 0; i< content.length;i++)
+function prevPage()
 {
-    ten[i].innerHTML = content[i].name;
+    if (current_page > 1) 
+    {
+        current_page--;
+        changePage(current_page);
+    }
 }
-var chitiet = document.getElementsByClassName("info");
-for( var i = 0; i< content.length;i++)
+
+function nextPage()
 {
-    chitiet[i].innerHTML = content[i].detail;
+    if (current_page < numPages()) 
+    {
+        current_page++;
+        changePage(current_page);
+    }
+  }
+
+function changePage(page)
+{
+    var col = document.getElementsByClassName("no");
+    var colName = document.getElementsByClassName("name");
+    var colDetail = document.getElementsByClassName("info");
+    var page_span = document.getElementById("page");
+
+    if (page < 1) page = 1;
+    if (page > numPages()) page = numPages();
+  
+for (var i = 0; i < pageRecord; i++)
+  {
+      col[i].innerText = content[i + (page-1) * pageRecord].number;
+      colName[i].innerText = content[i + (page-1) * pageRecord].name;
+      colDetail[i].innerText = content[i + (page-1) * pageRecord].detail;
+      page_span.innerHTML = page;
+  }
 }
+  
+
+
+window.onload = function() {
+    changePage(1);
+};
+//already print document ao on the table so wao
+// need checking the add()
+// checked
 
 
 
-
-// ok here we go fucked all the way
 
 // delete button creating
 var myNodelist = document.getElementsByClassName("deleteButton");
@@ -244,7 +404,7 @@ for( var i = 0; i< xoa.length;i++)
   function add() 
 {
     var table = document.getElementById("bang");
-    var row = table.insertRow(6);
+    var row = table.insertRow(5);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
@@ -262,9 +422,6 @@ for( var i = 0; i< xoa.length;i++)
   button1.className = "editing";
   cell4.appendChild(button1);
   
-  
-  
-
   var xoa = document.getElementsByClassName("delete");
   for( var i = 0; i< xoa.length;i++)
   {
@@ -279,7 +436,7 @@ for( var i = 0; i< xoa.length;i++)
   {
     sua[i].onclick = function()
     {
-      var nothingMore =     this.parentElement.parentElement.setAttribute("contenteditable","true")
+      var nothingMore =this.parentElement.parentElement.setAttribute("contenteditable","true")
     }
   }
    
@@ -322,12 +479,19 @@ function searchObj (newArray, thuTim)
         }
         if (value === thuTim) 
         {
-            alert("Tên là " + newArray.name + ", STT "+ newArray.number +", chi tiết : "+newArray.detail);
+            
+            run();
+            document.getElementById("outputText").innerHTML = "Tên là " + newArray.name + ", STT "+   newArray.number +", chi tiết : "+newArray.detail;
+          
+          
             ketqua.push(newArray);
             console.log(ketqua);
         }
+         
+        
     }
 }
+
 
 // Sort number
   var emptyNumber = [];
@@ -372,210 +536,32 @@ function toggleNumber()
     {
       var cunt = document.getElementsByClassName("no"); 
       cunt[i].innerHTML = emptyNumber2[i];
-      console.log("temp trc "+temp);
     }
     else if( content[i].number === emptyNumber2[i] )
     {
       var cunt = document.getElementsByClassName("no"); 
       cunt[i].innerHTML = emptyNumber2[i];
-      console.log("temp sau "+temp)
     }
   }
 }
 
+// dropdown modal not from mir
 
-
-
-
-
-
-
-
-// sort name
-// pagination
-function nextPage()
+function run()
 {
-  var content = 
-[ 
-  {
-    number: 1,
-    name: "Cheese",
-    detail: "Swiss"
-  },
-  {
-    number: 2,
-    name: "Bread",
-    detail: "Germany"
-  },
-  {
-    number: 3,
-    name: "Apple",
-    detail: "USA"
-  },
-  {
-    number: 4,
-    name: "Rice",
-    detail: "China"
-  },
+var modal = document.getElementById('myModal');  
+ modal.style.display = "block";
+  
+
+window.onclick = function(event) 
+{
+    if (event.target == modal) 
     {
-    number: 5,
-    name: "Dog meat",
-    detail: "Viet"
+        modal.style.display = "none";
+      }
   }
-    
-]
-// printInformation
-
-var so = document.getElementsByClassName("no");
-for( var i = 0; i< content.length; i++)
-{ 
-    so[i].innerHTML = content[i].number;
-}
-   
-var ten = document.getElementsByClassName("name");
-for( var i = 0; i< content.length;i++)
-{
-    ten[i].innerHTML = content[i].name;
-}
-var chitiet = document.getElementsByClassName("info");
-for( var i = 0; i< content.length;i++)
-{
-    chitiet[i].innerHTML = content[i].detail;
 }
 
-}
-
-
-
-function nextPage2()
-{
-
-var content1 = 
-[ 
-  {
-    number: 6,
-    name: "Orange",
-    detail: "Libia"
-  },
-  {
-    number: 7,
-    name: "Wurst",
-    detail: "Germany"
-  },
-  {
-    number: 8,
-    name: "Grapes",
-    detail: "Laos"
-  },
-  {
-    number: 9,
-    name: "Grains",
-    detail: "Korea"
-  },
-    {
-    number: 10,
-    name: "Cats",
-    detail: "Thais"
-  }
-    
-]
-var so = document.getElementsByClassName("no");
-for( var i = 0; i< content1.length; i++)
-{ 
-    so[i].innerHTML = content1[i].number;
-}
-   
-var ten = document.getElementsByClassName("name");
-for( var i = 0; i< content1.length;i++)
-{
-    ten[i].innerHTML = content1[i].name;
-}
-var chitiet = document.getElementsByClassName("info");
-for( var i = 0; i< content1.length;i++)
-{
-    chitiet[i].innerHTML = content1[i].detail;
-}
-
-}
-
-function nextPage3()
-{
-
-var content2 = 
-[ 
-  {
-    number: 11,
-    name: "Laptops",
-    detail: "Sweden"
-  },
-  {
-    number: 12,
-    name: "Plans",
-    detail: "Australia"
-  },
-  {
-    number: 13,
-    name: "Screws",
-    detail: "USA"
-  },
-  {
-    number: 14,
-    name: "Glass",
-    detail: "Sudan"
-  },
-    {
-    number: 15,
-    name: "Banana",
-    detail: "Mongo"
-  }
-    
-]
-var so = document.getElementsByClassName("no");
-for( var i = 0; i< content2.length; i++)
-{ 
-    so[i].innerHTML = content2[i].number;
-}
-   
-var ten = document.getElementsByClassName("name");
-for( var i = 0; i< content2.length;i++)
-{
-    ten[i].innerHTML = content2[i].name;
-}
-var chitiet = document.getElementsByClassName("info");
-for( var i = 0; i< content2.length;i++)
-{
-    chitiet[i].innerHTML = content2[i].detail;
-}
-
-
-}
-
-// var empty = [];
-// for( var i = 0; i< content.length;i++){
-
-//   var result = Object.keys(content[i]).map(function(key) {
-//   return [Number(key), content[i][key]];
-// });
-
-// var flatten = function(a, shallow,r){
-//   if(!r){ r = []}
-   
-// if (shallow) {
-//   return r.concat.apply(r,a);
-//   }    
-//    for(var i=0; i<a.length; i++){
-//         if(a[i].constructor == Array){
-//             flatten(a[i],shallow,r);
-//         }else{
-//             r.push(a[i]);
-//         }
-//     }
-//     return r;
-// }
-//   empty.push(flatten(result));
-// }
- 
-// var empty1 = flatten(empty);
 
 
 
