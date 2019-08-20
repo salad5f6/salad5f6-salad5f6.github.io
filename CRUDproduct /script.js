@@ -1,123 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>
-		application run
-	</title>
-
-	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-</head>
-<body>
-
-  <body>
-<head>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="script.js">
-
-
-
-
-</head>
-  <body>
-<head>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-
-</head>
-<head>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-
-</head>
-  <body>
-<container id="wrap">
-  <div id="words">
-    <h1 > Product Management</h1>
-  </div>
-
-<div class="search">
-<input type="search" placeholder="search" id="tim" value="" >
-<button onclick="timKiem()"> Search </button>
-<button onclick="add()"> Create New</button>
-</div>
-</br>
-
-<table class="table" id="bang" >
-  <tr>
-    <th>No <button onclick="toggleNumber()">sort</button></th>
-    <th>Name </th>
-    <th>Details </th>
-    <th>Action </th>
-  </tr>
-  <tr class="row">
-    <td class="no"></td>
-    <td class="name"></td>
-    <td class="info"></td>
-    <td class="deleteButton editButton"></td>
-  </tr>
-   <tr class="row">
-    <td class="no"></td>
-    <td class="name"></td>
-    <td class="info"></td>
-    <td class="deleteButton editButton"></td>
-  </tr>
-   <tr class="row">
-    <td class="no"></td>
-    <td class="name"></td>
-    <td class="info"></td>
-    <td class="deleteButton editButton"> </td>
-  </tr>
-   <tr class="row">
-    <td class="no"></td>
-    <td class="name"></td>
-    <td class="info"></td>
-    <td class="deleteButton editButton"> </td>
-  </tr>
-
-
-
-
-
-
-</table>
-<div id="pagination">
-  <a href="javascript:prevPage()" id="prev">Prev</a>
-  <a href="javascript:nextPage()" id="next">Next</a>
-  <span> page: </span> <span id="page"></span>
-</div>
-
-<div>
-  <span>
-
-  </span>
-</div>
-    <div id="myModal" class="modal">
-
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p id="outputText"></p>
-  </div>
-
-</div>
-
-
-
-</container>
-</body>
-
-
-
-
-
-
-<script type="text/javascript">
-
-
-var content = [
+var content = [ 
   {
     number: 1,
     name: "Cheese",
@@ -167,7 +48,7 @@ var content = [
     number: 10,
     name: "Cats",
     detail: "Thais"
-
+      
   },
   {
     number: 11,
@@ -219,8 +100,8 @@ var content = [
     name: "soy",
     detail: "Pakistan"
   }
-
-]
+    
+] 
 
 
 var current_page = 1;
@@ -228,13 +109,13 @@ var current_page = 1;
 var pageRecord = 4;
 // page dieu chinh theo so dong
 function numPages()
-{
+{      
     var n = Math.ceil(content.length / pageRecord);
     return n;
 }
 function prevPage()
 {
-    if (current_page > 1)
+    if (current_page > 1) 
     {
         current_page--;
         changePage(current_page);
@@ -243,7 +124,7 @@ function prevPage()
 
 function nextPage()
 {
-    if (current_page < numPages())
+    if (current_page < numPages()) 
     {
         current_page++;
         changePage(current_page);
@@ -259,7 +140,7 @@ function changePage(page)
 
     if (page < 1) page = 1;
     if (page > numPages()) page = numPages();
-
+  
 for (var i = 0; i < pageRecord; i++)
   {
       col[i].innerText = content[i + (page-1) * pageRecord].number;
@@ -268,10 +149,10 @@ for (var i = 0; i < pageRecord; i++)
       page_span.innerHTML = page;
   }
 }
+  
 
 
-
-window.onload =()=> {
+window.onload = function() {
     changePage(1);
 };
 //already print document ao on the table so wao
@@ -284,7 +165,7 @@ window.onload =()=> {
 // delete button creating
 var myNodelist = document.getElementsByClassName("deleteButton");
 
-for ( var i = 0; i < myNodelist.length; i++)
+for ( var i = 0; i < myNodelist.length; i++) 
 {
   var button = document.createElement("button");
   var text = document.createTextNode("Delete");
@@ -325,8 +206,8 @@ for( var i = 0; i< xoa.length;i++)
     }
   }
 
-// create new
-  function add()
+// create new 
+  function add() 
 {
     var table = document.getElementById("bang");
     var row = table.insertRow(5);
@@ -346,7 +227,7 @@ for( var i = 0; i< xoa.length;i++)
   button1.appendChild(text1);
   button1.className = "editing";
   cell4.appendChild(button1);
-
+  
   var xoa = document.getElementsByClassName("delete");
   for( var i = 0; i< xoa.length;i++)
   {
@@ -355,7 +236,7 @@ for( var i = 0; i< xoa.length;i++)
     var nothing = this.parentElement.parentElement.style.display = "none";
     }
   }
-
+  
   var sua = document.getElementsByClassName("editing");
   for( var i = 0; i < sua.length; i++)
   {
@@ -364,7 +245,7 @@ for( var i = 0; i< xoa.length;i++)
       var nothingMore =this.parentElement.parentElement.setAttribute("contenteditable","true")
     }
   }
-
+   
 }
 
 // Search
@@ -373,7 +254,7 @@ for( var i = 0; i< xoa.length;i++)
 var ketqua =[]
 
 
-function toObject(arr)
+function toObject(arr) 
 {
   var rv = {};
   for (var i = 0; i < arr.length; ++i)
@@ -392,35 +273,35 @@ function timKiem()
   searchObj (newArray, thuTim)
 }
 
-function searchObj (newArray, thuTim)
+function searchObj (newArray, thuTim) 
 {
-    for (var i in newArray)
+    for (var i in newArray) 
     {
         var value = newArray[i];
         // console.log(value);
-        if (typeof value === 'object')
+        if (typeof value === 'object') 
         {
-            searchObj(value, thuTim);
+            searchObj(value, thuTim); 
         }
-        if (value === thuTim)
+        if (value === thuTim) 
         {
-
+            
             run();
             document.getElementById("outputText").innerHTML = "Tên là " + newArray.name + ", STT "+   newArray.number +", chi tiết : "+newArray.detail;
-
-
+          
+          
             ketqua.push(newArray);
             console.log(ketqua);
         }
-
-
+         
+        
     }
 }
 
 
 // Sort number
   var emptyNumber = [];
-  var emptyNumber2 =[];
+  var emptyNumber2 =[]; 
    var temp =[];
 
   for( var i = 0; i < content.length; i++)
@@ -435,13 +316,13 @@ function searchObj (newArray, thuTim)
   for(a=0;a<array.length;a++){
     for(b=a+1;b<array.length;b++){
       if (array[a] < array[b]){
-        let temp = array[a];
+        temp = array[a];
         array[a] = array[b];
         array[b] = temp;
         }
       }
     }
-  return array;
+  return array; 
   }
 var newOne = emptyNumber;
 
@@ -453,18 +334,18 @@ var emptyNumber2 = sortNumber(emptyNumber);
     temp.push(content[i].number);
     }
 
-function toggleNumber()
+function toggleNumber() 
 {
   for ( var i =0; i< content.length; i++)
   {
     if( content[i].number === temp[i] )
     {
-      var cunt = document.getElementsByClassName("no");
+      var cunt = document.getElementsByClassName("no"); 
       cunt[i].innerHTML = emptyNumber2[i];
     }
     else if( content[i].number === emptyNumber2[i] )
     {
-      var cunt = document.getElementsByClassName("no");
+      var cunt = document.getElementsByClassName("no"); 
       cunt[i].innerHTML = emptyNumber2[i];
     }
   }
@@ -474,20 +355,15 @@ function toggleNumber()
 
 function run()
 {
-var modal = document.getElementById('myModal');
+var modal = document.getElementById('myModal');  
  modal.style.display = "block";
+  
 
-
-window.onclick = (event)=>
+window.onclick = function(event) 
 {
-    if (event.target == modal)
+    if (event.target == modal) 
     {
         modal.style.display = "none";
       }
   }
 }
-
-
-</script>
-</body>
-</html>
